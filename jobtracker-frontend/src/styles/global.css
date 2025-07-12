@@ -1,0 +1,100 @@
+/* global.css – for global styles like body background, fonts, theme. */
+body {
+    margin: 0;
+    font-family: sans-serif;
+    transition: background 0.4s ease, color 0.4s ease;
+    background: var(--color-surface);
+    color: var(--color-text);
+}
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard {
+    padding: 1.5rem;
+}
+
+.dashboard-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.card {
+    background: var(--color-card);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.card.applied {
+    border-left: 6px solid var(--status-applied);
+}
+
+.sidebar {
+    width: 260px;
+    background: var(--color-sidebar);
+    color: var(--color-text);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.app-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.theme-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.theme-icon:hover {
+    transform: scale(1.2);
+}
+
+
+.xp-bar .bar {
+    background: #ccc;
+    height: 8px;
+    border-radius: 4px;
+}
+
+.xp-bar .fill {
+    background: var(--color-accent);
+    height: 100%;
+    border-radius: 4px;
+}
+
+.header {
+    background: var(--color-header);
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
