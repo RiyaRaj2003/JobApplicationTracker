@@ -1,4 +1,5 @@
 /* global.css – for global styles like body background, fonts, theme. */
+
 body {
     margin: 0;
     font-family: sans-serif;
@@ -8,6 +9,8 @@ body {
 }
 
 .app-container {
+    position: relative;
+    z-index: 10;
     display: flex;
     min-height: 100vh;
 }
@@ -70,7 +73,6 @@ body {
     transform: scale(1.2);
 }
 
-
 .xp-bar .bar {
     background: #ccc;
     height: 8px;
@@ -84,11 +86,14 @@ body {
 }
 
 .header {
-    background: var(--color-header);
-    padding: 1.5rem;
+    background: var(--header-bg);
+    padding: 0.75rem 1.5rem; /* reduced top-bottom padding */
+    margin-top: -20px;         /* added margin to lift the header up */
+    min-height: 100px;        /* reduce height */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 1.10rem;
 }
 
 .theme-toggle {
@@ -97,4 +102,197 @@ body {
     left: 10px;
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+.background-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.glow-light {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #ffeaa7, #fff6e5);
+    opacity: 0.4;
+    border-radius: 50%;
+    filter: blur(90px);
+    position: absolute;
+    top: 8%;
+    left: 28%;
+    animation: floatGlow 8s ease-in-out infinite;
+}
+
+.sunray-light {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 20%, rgba(255, 234, 167, 0.4), transparent 60%);
+    z-index: -1;
+}
+
+.clouds-light {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('/cloud.svg');
+    background-repeat: repeat-x;
+    background-size: 480px auto;
+    background-position: 0 20%;
+    opacity: 0.3;
+    animation: floatClouds 40s linear infinite;
+}
+
+@keyframes floatClouds {
+    0% {
+        background-position: 0 10%;
+    }
+
+    100% {
+        background-position: -1200px 10%;
+    }
+}
+
+@keyframes floatSunrays {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translateY(-15px);
+        opacity: 0.6;
+    }
+}
+
+@keyframes floatGlow {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.6;
+    }
+}
+
+/* 🌌 Dark Mode Starfield */
+.starfield {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 9999px;
+    opacity: 0.2;
+    animation: twinkle 2s infinite;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Ensure .app has relative positioning */
+.app {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: var(--background);
+}
+
+.dashboard-section {
+    padding: 2rem;
+    flex-grow: 1;
+}
+
+.title {
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+.intro {
+    color: var(--text-color);
+}
+
+.mt {
+    margin-top: 2rem;
+}
+
+/* ---------- BIRDS (light mode only) ---------- */
+.flying-birds {
+    position: absolute;
+    top: 8%;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.bird-svg {
+    position: absolute;
+    width: 20px;
+    height: auto;
+    opacity: 0.8;
+    animation: fly-across 12s linear infinite;
+}
+
+.bird-1 {
+    top: 18%;
+    animation-delay: 3s;
+    animation-duration: 26s;
+}
+
+.bird-2 {
+    top: 24%;
+    animation-delay: 2s;
+    animation-duration: 27s;
+    transform: scale(0.8);
+}
+
+.bird-3 {
+    top: 30%;
+    animation-delay: 4s;
+    animation-duration: 26s;
+    transform: scale(0.9);
+}
+
+@keyframes fly-across {
+    0% {
+        left: -60px;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 110%;
+        opacity: 0;
+    }
 }

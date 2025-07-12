@@ -1,15 +1,16 @@
-import { useState } from 'react';
-import { ThemeProvider } from './context/ThemeContext';
-import Sidebar from './components/Sidebar';
-import Header from './components/Header';
-import Card from './components/Card';
-import AmbientIcon from './components/AmbientIcon';
+import { useState } from "react";
+import { ThemeProvider } from "./context/ThemeContext";
+import Sidebar from "./components/Sidebar";
+import Header from "./components/Header";
+import Card from "./components/Card";
+import BackgroundLayer from "./components/BackgroundLayer"; // ✅ Correct import
 
-function App() {
+function AppContent() {
   const [count, setCount] = useState(0);
 
   return (
-    <ThemeProvider>
+    <div className="app">
+      <BackgroundLayer /> {/* ✅ Background with clouds or stars */}
       <div className="app-container">
         <Sidebar />
         <main className="main-content">
@@ -22,7 +23,9 @@ function App() {
               <button onClick={() => setCount(count + 1)}>
                 count is {count}
               </button>
-              <p>Edit <code>App.jsx</code> and save to test HMR</p>
+              <p>
+                Edit <code>App.jsx</code> and save to test HMR
+              </p>
             </Card>
 
             <Card status="applied">
@@ -31,6 +34,14 @@ function App() {
           </section>
         </main>
       </div>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
     </ThemeProvider>
   );
 }

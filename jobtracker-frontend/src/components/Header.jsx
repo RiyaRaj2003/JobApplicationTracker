@@ -8,7 +8,7 @@ const greetings = [
 
 const Header = () => {
     const greeting =
-        new Date().getHours() < 12 ? "Good Morning 🌅" : "Good Evening 🌙";
+        new Date().getHours() < 12 ? "Good Morning🌅" : "Good Evening🌙";
     const quote = greetings[Math.floor(Math.random() * greetings.length)];
 
     return (
