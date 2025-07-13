@@ -1,0 +1,65 @@
+/* JobCard.css – Styles for job cards */
+
+.job-card {
+    background: var(--color-card);
+    color: var(--color-text);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    border-left: 5px solid transparent;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Title, Company, Location */
+.job-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.job-company {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-muted, #888);
+    margin-bottom: 0.25rem;
+}
+
+.job-location {
+    font-size: 0.85rem;
+    color: var(--color-muted, #aaa);
+}
+
+/* Action buttons container (Edit/Delete) */
+.job-actions {
+    margin-top: 0.75rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.6rem;
+}
+
+/* Accent borders based on job status */
+.job-card.applied {
+    border-left-color: #facc15;
+    /* yellow */
+}
+
+.job-card.interviewing {
+    border-left-color: #38bdf8;
+    /* blue */
+}
+
+.job-card.rejected {
+    border-left-color: #f87171;
+    /* rose/red */
+}
+
+.job-card.offered {
+    border-left-color: #4ade80;
+    /* green */
+}

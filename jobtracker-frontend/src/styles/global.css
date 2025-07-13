@@ -8,6 +8,13 @@ body {
     color: var(--color-text);
 }
 
+.app {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: var(--background);
+}
+
 .app-container {
     position: relative;
     z-index: 10;
@@ -30,18 +37,25 @@ body {
     margin-bottom: 1rem;
 }
 
-.card {
-    background: var(--color-card);
-    border-radius: 12px;
-    padding: 1rem;
-    margin-top: 1rem;
-    box-shadow: var(--shadow);
+.dashboard-section {
+    padding: 2rem;
+    flex-grow: 1;
 }
 
-.card.applied {
-    border-left: 6px solid var(--status-applied);
+.title {
+    font-size: 1.75rem;
+    font-weight: bold;
 }
 
+.intro {
+    color: var(--text-color);
+}
+
+.mt {
+    margin-top: 2rem;
+}
+
+/* Sidebar */
 .sidebar {
     width: 260px;
     background: var(--color-sidebar);
@@ -73,6 +87,38 @@ body {
     transform: scale(1.2);
 }
 
+.theme-toggle {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: transparent;
+    color: var(--text-color);
+}
+
+.greeting {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.quote {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--muted-text, #888);
+    max-width: 300px;
+    text-align: right;
+}
+
+/* XP Bar */
 .xp-bar .bar {
     background: #ccc;
     height: 8px;
@@ -85,25 +131,7 @@ body {
     border-radius: 4px;
 }
 
-.header {
-    background: var(--header-bg);
-    padding: 0.75rem 1.5rem; /* reduced top-bottom padding */
-    margin-top: -20px;         /* added margin to lift the header up */
-    min-height: 100px;        /* reduce height */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.10rem;
-}
-
-.theme-toggle {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
+/* Background Layer */
 .background-layer {
     position: absolute;
     inset: 0;
@@ -144,6 +172,64 @@ body {
     animation: floatClouds 40s linear infinite;
 }
 
+/* Dark Mode Starfield */
+.starfield {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 9999px;
+    opacity: 0.2;
+    animation: twinkle 2s infinite;
+}
+
+/* Flying Birds */
+.flying-birds {
+    position: absolute;
+    top: 8%;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.bird-svg {
+    position: absolute;
+    width: 20px;
+    height: auto;
+    opacity: 0.8;
+    animation: fly-across 12s linear infinite;
+}
+
+.bird-1 {
+    top: 18%;
+    animation-delay: 2s;
+    animation-duration: 26s;
+}
+
+.bird-2 {
+    top: 24%;
+    animation-delay: 1s;
+    animation-duration: 27s;
+    transform: scale(0.8);
+}
+
+.bird-3 {
+    top: 30%;
+    animation-delay: 3s;
+    animation-duration: 26s;
+    transform: scale(0.9);
+}
+
+/* Animations */
 @keyframes floatClouds {
     0% {
         background-position: 0 10%;
@@ -182,101 +268,6 @@ body {
     }
 }
 
-/* 🌌 Dark Mode Starfield */
-.starfield {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    z-index: 0;
-}
-
-.star {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: white;
-    border-radius: 9999px;
-    opacity: 0.2;
-    animation: twinkle 2s infinite;
-}
-
-@keyframes twinkle {
-
-    0%,
-    100% {
-        opacity: 0.2;
-    }
-
-    50% {
-        opacity: 0.8;
-    }
-}
-
-/* Ensure .app has relative positioning */
-.app {
-    position: relative;
-    min-height: 100vh;
-    overflow-x: hidden;
-    background: var(--background);
-}
-
-.dashboard-section {
-    padding: 2rem;
-    flex-grow: 1;
-}
-
-.title {
-    font-size: 1.75rem;
-    font-weight: bold;
-}
-
-.intro {
-    color: var(--text-color);
-}
-
-.mt {
-    margin-top: 2rem;
-}
-
-/* ---------- BIRDS (light mode only) ---------- */
-.flying-birds {
-    position: absolute;
-    top: 8%;
-    left: 0;
-    width: 100%;
-    height: 180px;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.bird-svg {
-    position: absolute;
-    width: 20px;
-    height: auto;
-    opacity: 0.8;
-    animation: fly-across 12s linear infinite;
-}
-
-.bird-1 {
-    top: 18%;
-    animation-delay: 3s;
-    animation-duration: 26s;
-}
-
-.bird-2 {
-    top: 24%;
-    animation-delay: 2s;
-    animation-duration: 27s;
-    transform: scale(0.8);
-}
-
-.bird-3 {
-    top: 30%;
-    animation-delay: 4s;
-    animation-duration: 26s;
-    transform: scale(0.9);
-}
-
 @keyframes fly-across {
     0% {
         left: -60px;
@@ -294,5 +285,17 @@ body {
     100% {
         left: 110%;
         opacity: 0;
+    }
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 0.8;
     }
 }

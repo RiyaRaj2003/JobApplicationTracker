@@ -1,0 +1,52 @@
+/* JobBoard.css – Kanban board layout */
+
+.job-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+/* Individual Status Columns */
+.job-column {
+    background: var(--color-card);
+    border-radius: 16px;
+    padding: 1.2rem;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    max-height: 75vh;
+    overflow-y: auto;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.job-column:hover {
+    transform: translateY(-3px);
+}
+
+.column-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+    text-align: center;
+    border-bottom: 2px solid var(--color-border, #ddd);
+    padding-bottom: 0.5rem;
+}
+
+/* Fallback text when no jobs are present */
+.job-column p {
+    text-align: center;
+    font-style: italic;
+    color: var(--color-muted, #999);
+}
+
+/* Optional scrollbar styling */
+.job-column::-webkit-scrollbar {
+    width: 6px;
+}
+
+.job-column::-webkit-scrollbar-thumb {
+    background-color: rgba(128, 128, 128, 0.3);
+    border-radius: 4px;
+}

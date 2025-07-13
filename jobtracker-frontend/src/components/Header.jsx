@@ -1,3 +1,4 @@
+// Header.jsx
 const greetings = [
     "Keep pushing forward 🚀",
     "One step at a time 🧗‍♀️",
@@ -7,14 +8,14 @@ const greetings = [
 ];
 
 const Header = () => {
-    const greeting =
-        new Date().getHours() < 12 ? "Good Morning🌅" : "Good Evening🌙";
+    const hour = new Date().getHours();
+    const greeting = hour < 6 ? "Good Night 🌙" : hour < 12 ? "Good Morning 🌅" : hour < 18 ? "Good Afternoon ☀️" : "Good Evening 🌆";
     const quote = greetings[Math.floor(Math.random() * greetings.length)];
 
     return (
         <header className="header">
-            <h2>{greeting}, Riya!</h2>
-            <p>{quote}</p>
+            <h2 className="greeting">{greeting}, Riya!</h2>
+            <p className="quote">{quote}</p>
         </header>
     );
 };
