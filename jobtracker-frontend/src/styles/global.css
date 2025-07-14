@@ -229,6 +229,31 @@ body {
     transform: scale(0.9);
 }
 
+/* floating “＋” button */
+.floating-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--color-accent);
+    color: black;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    font-size: 2rem;
+    line-height: 0;
+    /* box-shadow: var(--shadow); */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.2s ease;
+}
+
+.floating-btn:hover {
+    transform: scale(1.1);
+}
+
+
 /* Animations */
 @keyframes floatClouds {
     0% {

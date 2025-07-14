@@ -50,3 +50,10 @@
     background-color: rgba(128, 128, 128, 0.3);
     border-radius: 4px;
 }
+
+.error-message {
+    color: #f87171;
+    font-weight: bold;
+    padding: 1rem;
+    text-align: center;
+}
